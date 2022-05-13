@@ -58,6 +58,11 @@ const LocationService = ({
 
     return (
         <Map
+            draggable={false}
+            zoomable={false}
+            scrollwheel={false}
+            disableDoubleClick={true}
+            disableDoubleClickZoom={true}
             center={{
                 lat: 35.267342474237104,
                 lng: 129.08901354232913,
