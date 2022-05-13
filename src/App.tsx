@@ -1,5 +1,6 @@
 import Home from 'components/Home';
 import LoginForm from 'components/LoginForm';
+import { relative } from 'path';
 import React, { useState, useEffect } from 'react';
 
 interface User {
@@ -32,8 +33,12 @@ function App() {
         <div
             className="App"
             style={{
+                position: 'relative',
                 width: '100%',
+                maxWidth: '768px',
                 height: '100vh',
+                marginLeft: '50%',
+                transform: 'translate(-50%, 0)',
             }}
         >
             {!user ? (
