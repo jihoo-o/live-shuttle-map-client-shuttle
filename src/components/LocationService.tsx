@@ -69,7 +69,7 @@ const LocationService = ({
             }}
             style={{
                 width: '100%',
-                height: '450px',
+                height: '100%',
             }}
             level={6}
         >
