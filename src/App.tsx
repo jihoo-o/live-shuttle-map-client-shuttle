@@ -1,6 +1,5 @@
 import Home from 'components/Home';
 import LoginForm from 'components/LoginForm';
-import Switch from 'components/SwitchComponent';
 import React, { useState, useEffect } from 'react';
 
 interface User {

@@ -1,23 +1,30 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import LocationService from './LocationService';
-import SwitchComponent from './SwitchComponent';
+import SwitchButtons from './SwitchButtons';
 
 const Wrapper = styled.div`
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 `;
 
 const Home = ({ handleLogout }: any) => {
-    const [checked, setChecked] = useState<boolean>(false);
-    const handleUpdateChecked = (checked: boolean) => {
-        setChecked(checked);
+    const [gettingPosition, setGettingPosition] = useState<boolean>(false);
+    const [watchingPosition, setWatchingPosition] = useState<boolean>(false);
+
+    const handleUpdateGettingPosition = (gettingPosition: boolean) => {
+        if (gettingPosition) setWatchingPosition(false);
+        setGettingPosition(gettingPosition);
     };
 
-    // currentPosition
+    const handleUpdateWatchingPosition = (watchingPosition: boolean) => {
+        if (watchingPosition) setGettingPosition(false);
+        setWatchingPosition(watchingPosition);
+    };
 
     return (
         <Wrapper>
@@ -31,11 +38,16 @@ const Home = ({ handleLogout }: any) => {
             >
                 차량 변경하기
             </button>
-            <SwitchComponent
-                checked={checked}
-                handleUpdateChecked={handleUpdateChecked}
+            <SwitchButtons
+                gettingPosition={gettingPosition}
+                watchingPosition={watchingPosition}
+                handleUpdateGettingPosition={handleUpdateGettingPosition}
+                handleUpdateWatchingPosition={handleUpdateWatchingPosition}
             />
-            <LocationService isRunning={checked} />
+            <LocationService
+                gettingPosition={gettingPosition}
+                watchingPosition={watchingPosition}
+            />
         </Wrapper>
     );
 };
