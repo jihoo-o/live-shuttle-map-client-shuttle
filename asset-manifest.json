@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/capstone-shuttle-client/static/css/main.233b3b67.css",
-    "main.js": "/capstone-shuttle-client/static/js/main.735ed9d2.js",
+    "main.js": "/capstone-shuttle-client/static/js/main.771927d8.js",
     "index.html": "/capstone-shuttle-client/index.html",
     "main.233b3b67.css.map": "/capstone-shuttle-client/static/css/main.233b3b67.css.map",
-    "main.735ed9d2.js.map": "/capstone-shuttle-client/static/js/main.735ed9d2.js.map"
+    "main.771927d8.js.map": "/capstone-shuttle-client/static/js/main.771927d8.js.map"
   },
   "entrypoints": [
     "static/css/main.233b3b67.css",
-    "static/js/main.735ed9d2.js"
+    "static/js/main.771927d8.js"
   ]
 }
