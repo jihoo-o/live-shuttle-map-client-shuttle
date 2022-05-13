@@ -36,7 +36,7 @@ function App() {
                 position: 'relative',
                 width: '100%',
                 maxWidth: '768px',
-                height: '100%',
+                height: '100vh',
                 marginLeft: '50%',
                 transform: 'translate(-50%, 0)',
             }}
