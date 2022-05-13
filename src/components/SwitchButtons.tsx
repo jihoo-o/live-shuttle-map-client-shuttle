@@ -13,7 +13,7 @@ const StyledList = styled.ul`
     padding-left: 0;
     list-style-type: none;
     width: 100%;
-    height: 100px;
+    height: 5rem;
 `;
 
 const SwitchButtons = ({
