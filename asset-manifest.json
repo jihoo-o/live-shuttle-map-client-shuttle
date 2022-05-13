@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/kmseonhwa/capstone-shuttle-client/static/css/main.233b3b67.css",
+    "main.js": "/kmseonhwa/capstone-shuttle-client/static/js/main.b420b2aa.js",
+    "index.html": "/kmseonhwa/capstone-shuttle-client/index.html",
+    "main.233b3b67.css.map": "/kmseonhwa/capstone-shuttle-client/static/css/main.233b3b67.css.map",
+    "main.b420b2aa.js.map": "/kmseonhwa/capstone-shuttle-client/static/js/main.b420b2aa.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.233b3b67.css",
+    "static/js/main.b420b2aa.js"
+  ]
+}
