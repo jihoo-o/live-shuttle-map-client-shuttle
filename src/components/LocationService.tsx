@@ -27,7 +27,7 @@ const LocationService = ({
         try {
             const newPosition = await getCurrentPosition();
             await axios.put(
-                `http://localhost:8080/markers/shuttlebus/${user.id}`,
+                `https://2022bufscapstone.kr:8080/markers/shuttlebus/${user.id}`,
                 {
                     busid: user.id,
                     lat: newPosition.lat,

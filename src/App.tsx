@@ -23,7 +23,7 @@ function App() {
     const handleLogin = async ({ id, password }: LoginForm) => {
         try {
             const tmp = await axios.post(
-                'http://localhost:8080/markers/shuttlebus',
+                'https://2022bufscapstone.kr/markers/shuttlebus',
                 {
                     busid: id,
                     lat: 0,
