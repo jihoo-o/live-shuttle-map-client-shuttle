@@ -1,9 +1,9 @@
+import axios from 'axios';
 import Home from 'components/Home';
 import LoginForm from 'components/LoginForm';
-import { relative } from 'path';
 import React, { useState, useEffect } from 'react';
 
-interface User {
+export interface User {
     id: string;
 }
 
@@ -17,14 +17,25 @@ function App() {
     const [loginForm, setLoginForm] = useState<LoginForm | null>(null);
 
     useEffect(() => {
-        setUser({ id: 'temp' });
+        setUser({ id: '1' });
     }, []);
 
-    const handleLogin = ({ id, password }: LoginForm) => {
-        // 서버로 전송하기
-        setUser({ id });
+    const handleLogin = async ({ id, password }: LoginForm) => {
+        try {
+            const tmp = await axios.post(
+                'http://localhost:8080/markers/shuttlebus',
+                {
+                    busid: id,
+                    lat: 0,
+                    lng: 0,
+                }
+            );
+            console.log(tmp);
+            setUser({ id });
+        } catch (e: any) {
+            throw new Error(e);
+        }
     };
-
     const handleLogout = () => {
         setUser(null);
     };
@@ -44,7 +55,7 @@ function App() {
             {!user ? (
                 <LoginForm handleLogin={handleLogin} />
             ) : (
-                <Home handleLogout={handleLogout} />
+                <Home user={user} handleLogout={handleLogout} />
             )}
         </div>
     );

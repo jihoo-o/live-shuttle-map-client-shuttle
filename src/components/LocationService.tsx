@@ -2,8 +2,11 @@ import { getCurrentPosition, watchPosition } from 'api/geolocation';
 import useInterval from 'hooks/useInterval';
 import React, { useCallback, useEffect, useState } from 'react';
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
+import axios from 'axios';
+import { User } from 'App';
 
 interface LocationServiceProps {
+    user: User;
     gettingPosition: boolean;
     watchingPosition: boolean;
 }
@@ -14,21 +17,33 @@ interface Position {
 }
 
 const LocationService = ({
+    user,
     gettingPosition,
     watchingPosition,
 }: LocationServiceProps) => {
     const [position, setPosition] = useState<Position | null>(null);
 
     const postCurrentPosition = useCallback(async () => {
-        const newPosition = await getCurrentPosition();
-        // POST는 최초 한번만, 이후에는 PUT요청
-        console.log(newPosition);
-        setPosition(newPosition);
+        try {
+            const newPosition = await getCurrentPosition();
+            await axios.put(
+                `http://localhost:8080/markers/shuttlebus/${user.id}`,
+                {
+                    busid: user.id,
+                    lat: newPosition.lat,
+                    lng: newPosition.lng,
+                }
+            );
+            console.log(newPosition);
+            setPosition(newPosition);
+        } catch (e: any) {
+            throw new Error(e);
+        }
     }, []);
 
     const postWatchingPosition = useCallback(async () => {
         const { id, lat, lng } = await watchPosition();
-        // POST는 최초 한번만, 이후에는 PUT요청
+        // PUT
         console.log({ lat, lng });
         setPosition({ lat, lng });
         return id;

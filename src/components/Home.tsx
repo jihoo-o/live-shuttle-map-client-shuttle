@@ -1,7 +1,13 @@
+import { User } from 'App';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import LocationService from './LocationService';
 import SwitchButtons from './SwitchButtons';
+
+interface HomeProps {
+    user: User;
+    handleLogout: any;
+}
 
 const Wrapper = styled.div`
     width: 100%;
@@ -12,7 +18,7 @@ const Wrapper = styled.div`
     align-items: flex-start;
 `;
 
-const Home = ({ handleLogout }: any) => {
+const Home = ({ user, handleLogout }: HomeProps) => {
     const [gettingPosition, setGettingPosition] = useState<boolean>(false);
     const [watchingPosition, setWatchingPosition] = useState<boolean>(false);
 
@@ -45,6 +51,7 @@ const Home = ({ handleLogout }: any) => {
                 handleUpdateWatchingPosition={handleUpdateWatchingPosition}
             />
             <LocationService
+                user={user}
                 gettingPosition={gettingPosition}
                 watchingPosition={watchingPosition}
             />

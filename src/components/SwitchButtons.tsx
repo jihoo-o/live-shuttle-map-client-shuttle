@@ -25,7 +25,7 @@ const SwitchButtons = ({
     return (
         <StyledList>
             <li>
-                <span>5초 간격으로 전송하기</span>
+                <span>위치 등록하기</span>
                 <Switch
                     checked={gettingPosition}
                     onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,7 +34,7 @@ const SwitchButtons = ({
                     size="medium"
                 />
             </li>
-            <li>
+            {/* <li>
                 <span>자동 갱신으로 전송하기</span>
                 <Switch
                     checked={watchingPosition}
@@ -43,7 +43,7 @@ const SwitchButtons = ({
                     }}
                     size="medium"
                 />
-            </li>
+            </li> */}
         </StyledList>
     );
 };
