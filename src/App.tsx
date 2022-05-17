@@ -16,14 +16,10 @@ function App() {
     const [user, setUser] = useState<User | null>();
     const [loginForm, setLoginForm] = useState<LoginForm | null>(null);
 
-    useEffect(() => {
-        setUser({ id: '1' });
-    }, []);
-
     const handleLogin = async ({ id, password }: LoginForm) => {
         try {
             const tmp = await axios.post(
-                'https://2022bufscapstone.kr/markers/shuttlebus',
+                'https://2022bufscapstone.kr:8080/markers/shuttlebus',
                 {
                     busid: id,
                     lat: 0,
@@ -55,7 +51,7 @@ function App() {
             {!user ? (
                 <LoginForm handleLogin={handleLogin} />
             ) : (
-                <Home user={user} handleLogout={handleLogout} />
+                <Home user={user} onLogout={handleLogout} />
             )}
         </div>
     );

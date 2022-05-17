@@ -6,7 +6,7 @@ import SwitchButtons from './SwitchButtons';
 
 interface HomeProps {
     user: User;
-    handleLogout: any;
+    onLogout: any;
 }
 
 const Wrapper = styled.div`
@@ -18,7 +18,7 @@ const Wrapper = styled.div`
     align-items: flex-start;
 `;
 
-const Home = ({ user, handleLogout }: HomeProps) => {
+const Home = ({ user, onLogout }: HomeProps) => {
     const [gettingPosition, setGettingPosition] = useState<boolean>(false);
     const [watchingPosition, setWatchingPosition] = useState<boolean>(false);
 
@@ -30,6 +30,11 @@ const Home = ({ user, handleLogout }: HomeProps) => {
     const handleUpdateWatchingPosition = (watchingPosition: boolean) => {
         if (watchingPosition) setGettingPosition(false);
         setWatchingPosition(watchingPosition);
+    };
+
+    const handleLogout = () => {
+        onLogout();
+        handleUpdateGettingPosition(false);
     };
 
     return (
