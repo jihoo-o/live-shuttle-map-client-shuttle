@@ -15,3 +15,8 @@ code {
 * {
     box-sizing: border-box;
 }
+
+#root {
+    width: 100vw;
+    height: 80vh;
+}

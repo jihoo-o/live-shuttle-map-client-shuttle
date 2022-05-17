@@ -32,6 +32,7 @@ function App() {
             throw new Error(e);
         }
     };
+
     const handleLogout = () => {
         setUser(null);
     };
@@ -43,7 +44,7 @@ function App() {
                 position: 'relative',
                 width: '100%',
                 maxWidth: '768px',
-                height: '100vh',
+                height: '100%',
                 marginLeft: '50%',
                 transform: 'translate(-50%, 0)',
             }}
