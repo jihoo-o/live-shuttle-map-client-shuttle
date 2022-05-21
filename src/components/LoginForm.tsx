@@ -58,6 +58,10 @@ const LoginForm = ({ handleLogin }: any) => {
             window.alert('비밀번호를 입력해주세요.');
             return;
         }
+        if (!id.match(/^[0-9]*$/g)) {
+            window.alert('차량번호는 숫자만 입력해주세요.');
+            return;
+        }
         handleLogin({ id, password });
     };
 
@@ -71,6 +75,7 @@ const LoginForm = ({ handleLogin }: any) => {
                     ref={idRef}
                     type={'text'}
                     placeholder={'숫자만 입력해주세요. ex) 바1234 -> 1234'}
+                    maxLength={10}
                 />
             </FormItem>
             <FormItem>
@@ -81,6 +86,7 @@ const LoginForm = ({ handleLogin }: any) => {
                     ref={passwordRef}
                     type={'password'}
                     placeholder={'1234'}
+                    maxLength={16}
                 />
             </FormItem>
             <FormItem>
