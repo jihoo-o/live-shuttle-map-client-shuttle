@@ -1,0 +1,7 @@
+{
+    "workbench.colorCustomizations": {
+        "titleBar.activeBackground": "#ff5309bb",
+        "titleBar.inactiveBackground": "#ff5309bb"
+    },
+    "liveServer.settings.host": "localhost"
+}

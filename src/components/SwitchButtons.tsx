@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Switch from '@mui/material/Switch';
 import styled from 'styled-components';
 
@@ -12,8 +12,9 @@ interface SwitchButtonsProps {
 const StyledList = styled.ul`
     padding-left: 0;
     list-style-type: none;
-    width: 100%;
+    width: 400px;
     height: 5rem;
+    text-align: center;
 `;
 
 const SwitchButtons = ({
@@ -34,16 +35,6 @@ const SwitchButtons = ({
                     size="medium"
                 />
             </li>
-            {/* <li>
-                <span>자동 갱신으로 전송하기</span>
-                <Switch
-                    checked={watchingPosition}
-                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                        handleUpdateWatchingPosition(event.target.checked);
-                    }}
-                    size="medium"
-                />
-            </li> */}
         </StyledList>
     );
 };

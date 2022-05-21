@@ -2,6 +2,8 @@ import { User } from 'App';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import LocationService from './LocationService';
+import LoginFormButton from './LoginFormButton';
+import Profile from './Profile';
 import SwitchButtons from './SwitchButtons';
 
 interface HomeProps {
@@ -15,7 +17,7 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 `;
 
 const Home = ({ user, onLogout }: HomeProps) => {
@@ -39,16 +41,7 @@ const Home = ({ user, onLogout }: HomeProps) => {
 
     return (
         <Wrapper>
-            <button
-                style={{
-                    position: 'absolute',
-                    top: '10px',
-                    right: '10px',
-                }}
-                onClick={handleLogout}
-            >
-                차량 변경하기
-            </button>
+            {/* <Profile id={user.id} /> */}
             <SwitchButtons
                 gettingPosition={gettingPosition}
                 watchingPosition={watchingPosition}
@@ -60,6 +53,7 @@ const Home = ({ user, onLogout }: HomeProps) => {
                 gettingPosition={gettingPosition}
                 watchingPosition={watchingPosition}
             />
+            <LoginFormButton content={'차량 변경하기'} onClick={handleLogout} />
         </Wrapper>
     );
 };
